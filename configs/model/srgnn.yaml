@@ -1,0 +1,15 @@
+_target_: src.models.srgnn.SRGNN
+
+optimizer:
+  _target_: torch.optim.Adam
+  _partial_: true
+  lr: 0.001
+  weight_decay: 0.0
+
+net:
+  _target_: src.models.components.srgnn_pyg.GNNModel
+  hidden_size: 256
+  n_node: 310
+
+top_k: 20
+

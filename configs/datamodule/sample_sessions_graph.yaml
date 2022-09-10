@@ -1,0 +1,14 @@
+_target_: src.datamodules.multi_sessions_graph_datamodule.SessionsGraphDataModule
+batch_size: 128
+num_workers: 0
+pin_memory: False
+train_dataset:
+  _target_: src.datamodules.components.multi_sessions_graph_pyg.MultiSessionsGraph
+  root: ../../data/sample
+  phrase: train
+val_dataset: None
+test_dataset:
+  _target_: src.datamodules.components.multi_sessions_graph_pyg.MultiSessionsGraph
+  root: ../../data/sample
+  phrase: test
+
