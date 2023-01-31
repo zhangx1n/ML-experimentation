@@ -36,12 +36,12 @@ class MNISTDataModule(LightningDataModule):
     """
 
     def __init__(
-        self,
-        data_dir: str = "data/",
-        train_val_test_split: Tuple[int, int, int] = (55_000, 5_000, 10_000),
-        batch_size: int = 64,
-        num_workers: int = 0,
-        pin_memory: bool = False,
+            self,
+            data_dir: str = "data/",
+            train_val_test_split: Tuple[int, int, int] = (55_000, 5_000, 10_000),
+            batch_size: int = 64,
+            num_workers: int = 0,
+            pin_memory: bool = False,
     ):
         super().__init__()
 
@@ -136,3 +136,4 @@ if __name__ == "__main__":
     cfg = omegaconf.OmegaConf.load(root / "configs" / "datamodule" / "mnist.yaml")
     cfg.data_dir = str(root / "data")
     _ = hydra.utils.instantiate(cfg)
+    print(omegaconf.OmegaConf.to_yaml(cfg))

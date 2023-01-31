@@ -1,0 +1,34 @@
+_target_: src.datamodules.mind_datamodule.MINDdatamodule
+data_dir: ${paths.data_dir}
+batch_size: 128
+num_workers: 0
+pin_memory: False
+data_train:
+  _target_: src.datamodules.components.mind.MINDDataset
+  behaviors_path: ./data/MINDsmall_train/behaviors_parsed.tsv
+  news_path: ./data/MINDsmall_train/news_parsed.tsv
+  dataset_attributes: ${experiment.exp1.data.dataset_attributes}
+  num_words_title: ${experiment.exp1.data.num_words_title}
+  num_words_abstract: ${experiment.exp1.data.num_words_abstract}
+  num_punctuation: ${experiment.exp1.data.num_punctuation}
+  num_clicked_news_a_user: ${experiment.exp1.data.num_clicked_news_a_user}
+
+data_val:
+  _target_: src.datamodules.components.mind.MINDDataset
+  behaviors_path: ./data/MINDsmall_dev/behaviors_parsed.tsv
+  news_path: ./data/MINDsmall_dev/news_parsed.tsv
+  dataset_attributes: ${experiment.exp1.data.dataset_attributes}
+  num_words_title: ${experiment.exp1.data.num_words_title}
+  num_words_abstract: ${experiment.exp1.data.num_words_abstract}
+  num_punctuation: ${experiment.exp1.data.num_punctuation}
+  num_clicked_news_a_user: ${experiment.exp1.data.num_clicked_news_a_user}
+
+data_test:
+  _target_: src.datamodules.components.mind.MINDDataset
+  behaviors_path: ./data/MINDsmall_test/behaviors_parsed.tsv
+  news_path: ./data/MINDsmall_test/news_parsed.tsv
+  dataset_attributes: ${experiment.exp1.data.dataset_attributes}
+  num_words_title: ${experiment.exp1.data.num_words_title}
+  num_words_abstract: ${experiment.exp1.data.num_words_abstract}
+  num_punctuation: ${experiment.exp1.data.num_punctuation}
+  num_clicked_news_a_user: ${experiment.exp1.data.num_clicked_news_a_user}
